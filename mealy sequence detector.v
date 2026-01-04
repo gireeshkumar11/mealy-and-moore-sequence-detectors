@@ -7,7 +7,6 @@ module seq_detector_mealy (in,clk,reset,out,currentstate,nextstate);
 
     parameter s0=2'b00, s1=2'b01, s2=2'b10, s3=2'b11;
 
-    Combinational logic
     always @(*) begin
         nextstate = currentstate;
         out_next  = 0;
@@ -32,7 +31,8 @@ module seq_detector_mealy (in,clk,reset,out,currentstate,nextstate);
         if (reset) begin
             currentstate <= s0;
             out <= 0;
-        end else begin
+        end
+        else begin
             currentstate <= nextstate;
             out          <= out_next;  // REGISTERED OUTPUT
         end
