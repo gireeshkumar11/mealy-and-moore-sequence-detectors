@@ -6,7 +6,6 @@ module seq_detector_mealy_tb;
     wire out;
     wire [1:0] currentstate, nextstate;
 
-    // DUT instantiation
     seq_detector_mealy dut (
         .in(in),
         .clk(clk),
@@ -16,7 +15,6 @@ module seq_detector_mealy_tb;
         .nextstate(nextstate)
     );
 
-    // Clock generation (10 ns period)
     always #5 clk = ~clk;
 
     initial begin
@@ -28,11 +26,10 @@ module seq_detector_mealy_tb;
     
         #10 reset = 0;
         
-        #10 in = 1;
+        #10 in = 1; 
         #10 in = 0;
         #10 in = 0;
-        #10 in = 1;   // 1001 detected
-
+        #10 in = 1;   // 1001 detected 
         #10 in = 0;
         #10 in = 0;
         #10 in = 1;   // second 1001 detected
